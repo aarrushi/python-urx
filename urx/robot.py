@@ -102,7 +102,7 @@ class Robot(URRobot):
         """
         self.logger.debug("Setting pose to %s", trans.pose_vector)
         t = self.csys * trans
-        pose = URRobot.movex(self, command, t.pose_vector, acc=acc, vel=vel, wait=wait, threshold=threshold)
+        pose = URRobot.movex(self, command, t.pose_vector.array, acc=acc, vel=vel, wait=wait, threshold=threshold)
         if pose is not None:
             return self.csys.inverse * m3d.Transform(pose)
 
